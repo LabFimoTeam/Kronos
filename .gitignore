@@ -27,3 +27,4 @@ ehthumbs.db
 Thumbs.db
 
 # vendor *
+/app/webroot/assets/

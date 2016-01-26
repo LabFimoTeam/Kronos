@@ -1,0 +1,27 @@
+{
+  "name": "Kronos",
+  "homepage": "https://github.com/LabFimoTeam/Kronos",
+  "authors": [
+    "erdvillegas <erdvillegas@gmail.com>"
+  ],
+  "description": "Proyecto para gestionar reservaciones de clases",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "kronos",
+    "fime"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "webroot/assets/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~1.0.1",
+    "jquery": "~2.1.4"
+  }
+}
