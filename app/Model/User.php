@@ -4,20 +4,22 @@
  * @global Gestiona las cuentas de usuarios
  */
 
+App::uses('Security', 'Utility');
 App::uses('AppModel', 'Model');
+App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class User extends \AppModel{
 
     public $validate = array(
         'username' => array(
             'required' => array(
-                'rule' => 'notBlank',
+                'rule' => 'notEmpty',
                 'message' => 'A username is required'
             )
         ),
         'password' => array(
             'required' => array(
-                'rule' => 'notBlank',
+                'rule' => 'notEmpty',
                 'message' => 'A password is required'
             )
         ),

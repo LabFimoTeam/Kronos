@@ -35,15 +35,15 @@ class AppController extends Controller {
 
     public $components = array(
         'DebugKit.Toolbar',
+        'Session',
         'Auth' => array(
             'loginRedirect' => array(
-                'controller' => 'posts',
+                'controller' => 'home',
                 'action' => 'index'
             ),
             'logoutRedirect' => array(
-                'controller' => 'pages',
-                'action' => 'display',
-                'home'
+                'controller' => 'home',
+                'action' => 'index'
             ),
             'authenticate' => array(
                 'Form' => array(
