@@ -33,6 +33,17 @@
  */
 	Configure::write('debug', 1);
 
+
+/**
+ *  Configuracion de encriptacion
+ *
+ * Utilizado para encriuptar y desencriptar mensajes
+ */
+
+    Configure::write('Encriptacion.Key', Configure::read('Security.salt'));
+    Configure::write('Encriptacion.blockSize', 256);
+    Configure::write('Encriptacion.modo', null);
+
 /**
  * Configure the Error handler used to handle errors for your application. By default
  * ErrorHandler::handleError() is used. It will display errors using Debugger, when debug > 0
@@ -216,21 +227,19 @@
  *
  */
 	Configure::write('Session', array(
-		'defaults' => 'php'
+		'defaults' => 'database'
 	));
 
 /**
  * A random string used in security hashing methods.
  */
     //KronosFime
-	//Configure::write('Security.salt', 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi');
     Configure::write('Security.salt','820b78952f85d82de55310e05abc3911');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
     //1429363
-	//Configure::write('Security.cipherSeed', '76859309657453542496749683645');
     Configure::write('Security.cipherSeed', '9b59862f3e4739938f703bf6a1c8c1cc');
 
 /**
@@ -363,7 +372,7 @@ if (Configure::read('debug') > 0) {
 }
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
-$prefix = 'myapp_';
+$prefix = 'kronos_';
 
 /**
  * Configure the cache used for general framework caching. Path information,

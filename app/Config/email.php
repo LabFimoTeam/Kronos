@@ -42,26 +42,26 @@ class EmailConfig {
 	public $default = array(
 		'transport' => 'Mail',
 		'from' => 'kronos@fime.uanl.mx',
-		//'charset' => 'utf-8',
-		//'headerCharset' => 'utf-8',
+		'charset' => 'utf-8',
+		'headerCharset' => 'utf-8',
 	);
 
 	public $smtp = array(
 		'transport' => 'Smtp',
 		'from' => array('kronos@fime.uanl.mx' => 'kronos'),
-		'host' => 'localhost',
+		'host' => 'gama.fime.uanl.mx',
 		'port' => 25,
 		'timeout' => 30,
-		'username' => 'user',
-		'password' => 'secret',
+		'username' => 'kronos',
+		'password' => 'Kronos2016',
 		'client' => null,
 		'log' => false,
-		//'charset' => 'utf-8',
-		//'headerCharset' => 'utf-8',
+		'charset' => 'utf-8',
+		'headerCharset' => 'utf-8',
 	);
 
 	public $fast = array(
-		'from' => 'you@localhost',
+		'from' => 'kronos@fime.uanl.mx',
 		'sender' => null,
 		'to' => null,
 		'cc' => null,

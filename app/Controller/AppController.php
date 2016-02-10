@@ -36,24 +36,41 @@ class AppController extends Controller {
     public $components = array(
         'DebugKit.Toolbar',
         'Session',
+        'AES' => array(
+            'blockSize' => 256,
+            'modo' => null,
+        ),
         'Auth' => array(
-            'loginRedirect' => array(
-                'controller' => 'home',
-                'action' => 'index'
-            ),
-            'logoutRedirect' => array(
-                'controller' => 'home',
-                'action' => 'index'
-            ),
+            'loginRedirect' => array('controller' => 'home', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+            'authError' => 'You must be logged in to view this page.',
+            'loginError' => 'Invalid Username or Password entered, please try again.',
             'authenticate' => array(
                 'Form' => array(
                     'passwordHasher' => 'Blowfish'
                 )
-            )
+            ),
+        'Email'
         ));
 
     public function beforeFilter() {
         $this->Auth->allow('index', 'view');
+    }
+
+    private $mcrypt_cipher = MCRYPT_RIJNDAEL_256;
+    private $mcrypt_mode = MCRYPT_MODE_CBC;
+
+
+    public function encriptar($plaintext)
+    {
+        $enc = $this->AES->encrypt($plaintext);
+        return $enc;
+    }
+
+    public function desencriptar($encrypted)
+    {
+        $des = $this->AES->decrypt($encrypted);
+        return $des;
     }
 
 }
